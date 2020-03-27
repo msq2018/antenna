@@ -9,8 +9,8 @@
 </head>
 <body>
 <div id="app">
-    <welcome :title="'This cool app'"></welcome>
+    <app :title="'This cool app'"></app>
 </div>
-<script type="text/javascript" src="{{asset('js/admin/app.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/admin/main.js')}}"></script>
 </body>
 </html>

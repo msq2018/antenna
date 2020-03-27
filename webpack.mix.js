@@ -11,6 +11,22 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/adminhtml/js/app.js', 'public/js/admin/')
-   .sass('resources/adminhtml/sass/app.scss', 'public/css/admin/');
+mix.js('resources/adminhtml/src/main.js', 'public/js/admin/')
+    .webpackConfig({
+    resolve: {
+        alias: {
+            '@': require('path').resolve(__dirname, 'resources/adminhtml/src')
+        }
+    },
+    module: {
+        rules: [{
+            test: /\.scss$/,
+            use: [
+                {
+                    loader: "sass-loader",
+                }
+            ]
+        }]
+    }
 
+}).sass('resources/adminhtml/sass/app.scss', 'public/css/admin/');
