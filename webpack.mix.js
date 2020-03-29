@@ -13,20 +13,38 @@ const mix = require('laravel-mix');
 
 mix.js('resources/adminhtml/src/main.js', 'public/js/admin/')
     .webpackConfig({
-    resolve: {
-        alias: {
-            '@': require('path').resolve(__dirname, 'resources/adminhtml/src')
-        }
-    },
-    module: {
-        rules: [{
-            test: /\.scss$/,
-            use: [
+        resolve: {
+            alias: {
+                '@': require('path').resolve(__dirname, 'resources/adminhtml/src')
+            }
+        },
+        module:{
+            rules: [
                 {
-                    loader: "sass-loader",
-                }
+                    test: /\.s(c|a)ss$/,
+                    use: [
+                        'vue-style-loader',
+                        'css-loader',
+                        {
+                            loader: 'sass-loader',
+                            // Requires sass-loader@^7.0.0
+                            options: {
+                                implementation: require('sass'),
+                                fiber: require('fibers'),
+                                indentedSyntax: true // optional
+                            },
+                            // Requires sass-loader@^8.0.0
+                            options: {
+                                implementation: require('sass'),
+                                sassOptions: {
+                                    fiber: require('fibers'),
+                                    indentedSyntax: true // optional
+                                },
+                            },
+                        },
+                    ],
+                },
             ]
-        }]
-    }
+        }
 
-}).sass('resources/adminhtml/sass/app.scss', 'public/css/admin/');
+    })

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="app">
-    <app :title="'This cool app'"></app>
+    <app></app>
 </div>
 <script type="text/javascript" src="{{asset('js/admin/main.js')}}"></script>
 </body>
