@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import { mdiSvg } from '@mdi/js'
 
 Vue.use(Vuetify)
 
-const opts = {}
+const opts = {
+    icons: {
+        iconfont: 'mdiSvg',
+    },
+}
 
 export default new Vuetify(opts)
