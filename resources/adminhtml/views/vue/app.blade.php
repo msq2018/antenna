@@ -11,6 +11,6 @@
 <div id="app">
     <app></app>
 </div>
-<script type="text/javascript" src="{{asset('js/admin/dist/main.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend/js/dist/main.js')}}"></script>
 </body>
 </html>

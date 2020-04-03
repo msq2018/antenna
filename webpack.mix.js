@@ -10,8 +10,7 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-mix.js('resources/adminhtml/src/main.js', 'public/js/admin/dist/')
+mix.js('resources/adminhtml/src/main.js', 'backend/js/dist/')
     .webpackConfig({
         resolve: {
             alias: {
@@ -47,7 +46,6 @@ mix.js('resources/adminhtml/src/main.js', 'public/js/admin/dist/')
             ]
         },
         output: {
-            chunkFilename: 'js/admin/dist/chunks/[name].js',
-        },
-
-    })
+            chunkFilename: 'backend/js/dist/chunks/[name].js',
+        }
+    });
