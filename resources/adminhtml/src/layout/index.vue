@@ -1,26 +1,22 @@
 <template>
     <v-app id="inspire">
-        <Nav :opened="drawer"></Nav>
-        <v-app-bar
-            app
-            color="indigo"
-            dark
-        >
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-toolbar-title>Dashboard</v-toolbar-title>
-        </v-app-bar>
-
+        <Nav :opened="opening"></Nav>
+        <AppBar :navState="opening" @changeNavState="setNavState"></AppBar>
         <v-content>
             <v-container
-                class="fill-height"
+                class="pa-7"
                 fluid
             >
+                <transition name="fade">
+                <router-view/>
+                </transition>
             </v-container>
         </v-content>
 
         <v-footer
             color="indigo"
             app
+            inset
         >
             <span class="white--text">&copy; 2019</span>
         </v-footer>
@@ -28,18 +24,24 @@
 </template>
 
 <script>
-    import {Nav} from "./sections";
+    import {Nav,AppBar} from "./sections";
     export default {
         name: "index",
         components:{
-            Nav
+            Nav,
+            AppBar
         },
         props: {
             source: String,
         },
         data: () => ({
-            drawer: false,
+            opening: false,
         }),
+        methods:{
+            setNavState (state){
+                this.opening = state
+            }
+        }
     }
 </script>
 

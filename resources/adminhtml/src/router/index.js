@@ -31,33 +31,29 @@ Vue.use(Router)
  * all roles can be accessed
  */
 import Layout from '@/layout'
-import Page from '@/components/Page'
 
 export const constantRoutes = [
     {
         path: '/',
         component: Layout,
+        redirect: '/dashboard',
         children:[
             {
-                path: 'dashboard',
+                path: '/dashboard',
                 component: () => import('@/pages/dashboard/index'),
-                name: 'Dashboard',
+                name: 'dashboard',
+                meta: { icon: '$homeCity' ,title:"Dashboard"}
+            },
+            {
+                path: '/spa-page',
+                name: 'page',
+                component: ()=> import('@/components/Page'),
+                meta: { icon: '$homeCity' ,title:"Text"}
             }
+
         ]
     },
-    {
-        path: '/spa-page',
-        name: 'page',
-        component: Page,
-        props: {
-            title: "This is the SPA Second Page",
-            author: {
-                name: "Fisayo Afolayan",
-                role: "Software Engineer",
-                code: "Always keep it clean"
-            }
-        }
-    },
+
 ]
 
 

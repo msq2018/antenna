@@ -10,39 +10,16 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.js('resources/adminhtml/src/main.js', 'backend/js/dist/')
+mix.js('resources/adminhtml/src/main.js', 'backend/dist/js')
+    .sass('resources/adminhtml/src/assets/sass/app.scss','backend/dist/css')
     .webpackConfig({
         resolve: {
             alias: {
-                '@': require('path').resolve(__dirname, 'resources/adminhtml/src')
+                '@': require('path').resolve(__dirname, 'resources/adminhtml/src'),
             }
         },
         module:{
             rules: [
-                {
-                    test: /\.s(c|a)ss$/,
-                    use: [
-                        'vue-style-loader',
-                        'css-loader',
-                        {
-                            loader: 'sass-loader',
-                            // Requires sass-loader@^7.0.0
-                            options: {
-                                implementation: require('sass'),
-                                fiber: require('fibers'),
-                                indentedSyntax: true // optional
-                            },
-                            // Requires sass-loader@^8.0.0
-                            options: {
-                                implementation: require('sass'),
-                                sassOptions: {
-                                    fiber: require('fibers'),
-                                    indentedSyntax: true // optional
-                                },
-                            },
-                        },
-                    ],
-                },
             ]
         },
         output: {

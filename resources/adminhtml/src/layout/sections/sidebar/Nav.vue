@@ -8,10 +8,12 @@
             <v-list-item-title >John Leider</v-list-item-title>
         </v-list-item>
         <v-list >
+
             <v-list-item
-                v-for="item in items"
-                :key="item.title"
+                v-for="item in routesItems"
+                :key="item.id"
                 link
+                :to="{path:item.path}"
             >
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -19,7 +21,6 @@
                 <v-list-item-content>
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item-content>
-
             </v-list-item>
         </v-list>
 
@@ -28,7 +29,6 @@
 
 <script>
     import {assets} from "@/helpers/assets";
-
     export default {
         name: "Nav",
         props: {
@@ -40,7 +40,7 @@
         },
         data: () => ({
             background:{
-                src:assets('assets/layout/nav_bg.jpg'),
+                src:assets('assets/images/layout/nav_bg.jpg'),
                 height:"100%",
                 gradient:"rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)"
             },
@@ -50,7 +50,27 @@
                 { title: 'Users', icon: '$accountGroupOutline' },
             ],
         }),
-        methods: {}
+        computed:{
+            routesItems:function () {
+                let routes = this.$router.options.routes[0].children;
+                let items = [];
+                for ( let key in routes){
+                    let route = routes[key]
+                    items.push({
+                        id:key,
+                        path: route.path,
+                        title:route.meta.title,
+                        icon: route.meta.icon
+                    })
+                }
+                return items;
+            }
+        },
+        methods: {
+            getRoutes(){
+              console.log(this.$router.options.routes[0].children);
+            },
+        }
 
     }
 </script>
