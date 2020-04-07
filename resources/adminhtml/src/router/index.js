@@ -40,7 +40,7 @@ export const constantRoutes = [
         children:[
             {
                 path: '/dashboard',
-                component: () => import('@/pages/dashboard/index'),
+                component: () => import('@/pages/Dashboard/Index'),
                 name: 'dashboard',
                 meta: { icon: '$homeCity' ,title:"Dashboard"}
             },
@@ -61,7 +61,7 @@ const createRouter = () => new Router({
     base: 'admin/',
     mode: 'history', // require service support
     scrollBehavior: () => ({y: 0}),
-    routes: constantRoutes
+    routes: constantRoutes,
 })
 
 const router = createRouter()

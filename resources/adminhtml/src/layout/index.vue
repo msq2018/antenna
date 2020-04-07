@@ -2,14 +2,12 @@
     <v-app id="inspire">
         <Nav :opened="opening"></Nav>
         <AppBar :navState="opening" @changeNavState="setNavState"></AppBar>
-        <v-content>
+        <v-content class="grey lighten-3">
             <v-container
                 class="pa-7"
                 fluid
             >
-                <transition name="fade">
-                <router-view/>
-                </transition>
+                    <router-view class="container"/>
             </v-container>
         </v-content>
 
@@ -24,15 +22,12 @@
 </template>
 
 <script>
-    import {Nav,AppBar} from "./sections";
+    import {Nav,AppBar} from "./Sections";
     export default {
         name: "index",
         components:{
             Nav,
             AppBar
-        },
-        props: {
-            source: String,
         },
         data: () => ({
             opening: false,
@@ -46,5 +41,9 @@
 </script>
 
 <style scoped>
-
+    .route-class{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
 </style>

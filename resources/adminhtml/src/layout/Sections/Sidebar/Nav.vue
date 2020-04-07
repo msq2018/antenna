@@ -2,10 +2,10 @@
     <v-navigation-drawer  :mini-variant.sync="opened" dark  app>
         <v-img slot="img" :height="background.height" :src="background.src" :gradient="background.gradient"></v-img>
         <v-list-item class="px-2 py-1 grey darken-4">
-            <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+            <v-list-item-avatar color="#fff">
+                <v-img :src="logo.src"></v-img>
             </v-list-item-avatar>
-            <v-list-item-title >John Leider</v-list-item-title>
+            <v-list-item-title >Vue MD PRO</v-list-item-title>
         </v-list-item>
         <v-list >
 
@@ -14,6 +14,7 @@
                 :key="item.id"
                 link
                 :to="{path:item.path}"
+                class="mt-5"
             >
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
@@ -39,6 +40,9 @@
             }
         },
         data: () => ({
+            logo:{
+                src:assets('assets/images/layout/logo.png'),
+            },
             background:{
                 src:assets('assets/images/layout/nav_bg.jpg'),
                 height:"100%",

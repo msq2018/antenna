@@ -1,11 +1,10 @@
 <template>
-    <div style="background: aqua;">
-    </div>
+
 </template>
 
 <script>
     export default {
-        name: "Page"
+        name: "Login"
     }
 </script>
 
