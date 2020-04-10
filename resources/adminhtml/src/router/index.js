@@ -53,6 +53,12 @@ export const constantRoutes = [
 
         ]
     },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/pages/User/Login'),
+        hidden: true
+    },
 
 ]
 

@@ -17,11 +17,9 @@
 
         <v-list>
             <v-list-item
-                v-for="n in 5"
-                :key="n"
-                @click="() => {}"
+                @click="() => {this.$router.push({name:'login'})}"
             >
-                <v-list-item-title>Option {{ n }}</v-list-item-title>
+                <v-list-item-title>退出</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-menu>

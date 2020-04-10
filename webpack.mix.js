@@ -11,7 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 mix.js('resources/adminhtml/src/main.js', 'backend/dist/js')
-    .sass('resources/adminhtml/src/assets/sass/app.scss','backend/dist/css')
     .webpackConfig({
         resolve: {
             alias: {
@@ -25,4 +24,5 @@ mix.js('resources/adminhtml/src/main.js', 'backend/dist/js')
         output: {
             chunkFilename: 'backend/js/dist/chunks/[name].js',
         }
-    });
+    })
+    .sass('resources/adminhtml/src/assets/sass/app.scss','backend/dist/css');
