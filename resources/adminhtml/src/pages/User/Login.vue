@@ -18,6 +18,7 @@
         <div class="panel-content">
             <v-app class="login-con">
                 <!-- <v-spacer></v-spacer> -->
+
                 <v-content>
                     <v-container
                         fluid
@@ -29,53 +30,42 @@
                         >
                             <v-flex class="frame">
                                 <h1>
-                                   登陆
+                                   {{$t("user.login")}}
                                 </h1>
                                 <v-form>
                                     <v-text-field
                                         v-model="form.username"
-                                        prepend-icon="person"
+                                        prepend-icon="$account"
                                         clearable
-                                        :label="用户名"
+                                        :label="$t('user.username')"
                                         @keyup.enter.native="login"
                                         required
                                     ></v-text-field>
                                     <v-text-field
                                         v-model="form.password"
-                                        prepend-icon="lock"
+                                        prepend-icon="$lock"
                                         @keyup.enter.native="login"
-                                        :append-icon="showPwd ? 'visibility_off' : 'visibility'"
+                                        :append-icon="showPwd ? '$visibility_off' : '$visibility'"
                                         :type="showPwd ? 'text' : 'password'"
                                         @click:append="showPwd = !showPwd"
-                                        :label="秘密"
+                                        :label="$t('user.password')"
                                         required
                                     ></v-text-field>
-                                    <v-layout
-                                        column
-                                        wrap
-                                        justify-end
-                                        align-end
+                                    <v-btn
+                                        :loading="loginLoading"
+                                        @click="login"
                                     >
-                                        <v-flex>
-                                            <v-btn
-                                                flat
-                                                small
-                                                color="primary"
-                                                @click="redirectForgotPassword"
-                                            >
-                                                忘记密码
-                                            </v-btn>
-                                        </v-flex>
-                                        <v-flex>
-                                            <v-btn
-                                                :loading="loginLoading"
-                                                @click="login"
-                                            >
-                                                <span slot="loader">Loading...</span>
-                                                登陆
-                                            </v-btn>
-                                        </v-flex>
-                                    </v-layout>
+                                        <span slot="loader">Loading...</span>
+                                        {{$t("user.sign_in")}}
+                                    </v-btn>
+                                    <v-btn
+                                        small
+                                        text
+                                        color="primary"
+                                        @click="redirectForgotPassword"
+                                    >
+                                        {{$t("user.forgot_password")}}
+                                    </v-btn>
                                 </v-form>
                             </v-flex>
                         </v-layout>
@@ -121,7 +111,8 @@
                 }
 
                 this.loginLoading = true;
-                this.$store
+                this.$router.push({name:'dashboard'})
+               /* this.$store
                     .dispatch('login', this.form)
                     .then(() => {
                         try {
@@ -139,7 +130,7 @@
                     })
                     .finally(() => {
                         this.loginLoading = false;
-                    });
+                    });*/
             },
             redirectForgotPassword() {
                 console.log('redirectForgotPassword');

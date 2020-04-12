@@ -5,7 +5,7 @@
 
 <script>
     export default {
-        name: "Page"
+        name: "List"
     }
 </script>
 

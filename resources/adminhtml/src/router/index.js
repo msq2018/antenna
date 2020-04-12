@@ -45,10 +45,10 @@ export const constantRoutes = [
                 meta: { icon: '$homeCity' ,title:"Dashboard"}
             },
             {
-                path: '/spa-page',
-                name: 'page',
-                component: ()=> import('@/components/Page'),
-                meta: { icon: '$homeCity' ,title:"Text"}
+                path: '/user',
+                name: 'user',
+                component: ()=> import('@/pages/User/List'),
+                meta: { icon: '$account' ,title:"User"}
             }
 
         ]

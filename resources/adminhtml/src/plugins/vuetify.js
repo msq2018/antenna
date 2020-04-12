@@ -10,7 +10,7 @@ const opts = {
     icons: {
         iconfont: 'mdiSvg',
         values: ICONS_SVG
-    },
+    }
 }
 
 export default new Vuetify(opts)
