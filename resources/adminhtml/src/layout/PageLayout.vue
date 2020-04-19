@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import {Nav,AppBar} from "./Sections";
+    import {Nav,AppBar} from "./GlobalSections";
     export default {
         name: "index",
         components:{
