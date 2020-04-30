@@ -44,7 +44,6 @@
 </template>
 
 <script>
-
     export default {
         name: "Login",
         data: () => ({
@@ -63,33 +62,25 @@
                 }
 
                 this.loginLoading = true;
-                this.$router.push({name:'dashboard'})
-               /* this.$store
+               this.$store
                     .dispatch('login', this.form)
                     .then(() => {
-                        try {
+                        /*try {
                             this.$router.push({ name: 'Index' });
                         } catch (err) {
                             this.$router.push({ path: '/' });
-                        }
+                        }*/
                     })
                     .catch((res) => {
                         console.log('login-failed', res);
-                        this.$message({
-                            type: 'error',
-                            text: this.$t('common.invalid_password_username'),
-                        });
                     })
                     .finally(() => {
                         this.loginLoading = false;
-                    });*/
+                    });
             },
             redirectForgotPassword() {
                 console.log('redirectForgotPassword');
-                this.$message({
-                    type: 'info',
-                    text: 'Ahem: Please add redirect function',
-                });
+
             },
         },
         created() {},

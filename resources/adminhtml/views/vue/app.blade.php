@@ -11,6 +11,11 @@
 <div id="app">
     <app></app>
 </div>
+<script>
+    window.config = {
+        baseUrl:'{{app('url')->to('/')}}'
+    }
+</script>
 <script type="text/javascript" src="{{asset('backend/dist/js/main.js')}}"></script>
 </body>
 </html>

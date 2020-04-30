@@ -8,7 +8,6 @@ const whiteList = ['login', 'register']
 router.beforeEach((to, from, next)=>{
     Nprogress.start();
     const token = "";
-    console.log(to)
     if (whiteList.includes(to.name)) {
         next()
     } else {
