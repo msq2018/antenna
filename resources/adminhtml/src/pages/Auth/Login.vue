@@ -51,7 +51,8 @@
             showPwd: false,
             form: {
                 username: 'admin',
-                password: 'admin123',
+                password: 'admin888',
+                mark:'admin_pc'
             },
             loginLoading: false,
         }),
@@ -64,12 +65,9 @@
                 this.loginLoading = true;
                this.$store
                     .dispatch('login', this.form)
-                    .then(() => {
-                        /*try {
-                            this.$router.push({ name: 'Index' });
-                        } catch (err) {
-                            this.$router.push({ path: '/' });
-                        }*/
+                    .then((res) => {
+                        console.log(res);
+                        this.$router.push({ name: 'dashboard' });
                     })
                     .catch((res) => {
                         console.log('login-failed', res);

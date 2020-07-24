@@ -10,7 +10,7 @@
         <v-list >
 
             <v-list-item
-                v-for="item in routesItems"
+                v-for="item in items"
                 :key="item.id"
                 link
                 :to="{path:item.path}"
@@ -30,6 +30,7 @@
 
 <script>
     import {assets} from "@/helpers/assets";
+
     export default {
         name: "Nav",
         props: {
@@ -67,6 +68,7 @@
                         icon: route.meta.icon
                     })
                 }
+                console.log(items);
                 return items;
             }
         },

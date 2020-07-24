@@ -25,9 +25,7 @@ export const asyncRoutes = [
             }
 
         ]
-    },
-    ,
-
+    }
 ];
 
 export const baseRouters = [

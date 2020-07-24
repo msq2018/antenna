@@ -2,7 +2,7 @@ import axios from '@/helpers/request'
 
 export function login (parameter) {
     return axios({
-        url: 'admin/user/login',
+        url: 'user/login',
         method: 'post',
         data: parameter
     })

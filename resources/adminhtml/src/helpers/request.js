@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const getBaseUrl = () =>{
     const baseUrl = window.config.baseUrl||window.location.origin
-    return baseUrl +"/api/v1";
+    return baseUrl +"/admin/api/v1";
 }
 
 const setError = (error) => {

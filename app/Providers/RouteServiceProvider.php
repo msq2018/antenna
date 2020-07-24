@@ -26,7 +26,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $adminhtmlNamespace = 'App\Http\Controllers\Adminhtml';
 
-    protected $apiV1Namespace = 'App\Http\Controllers\Api\V1';
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -45,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiV1Routes();
+        $this->mapApiRoutes();
 
         $this->mapWebRoutes();
 
@@ -81,11 +80,17 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiV1Routes()
+    protected function mapApiRoutes()
     {
-        Route::prefix('api/v1')
-             ->middleware('api')
-             ->namespace($this->apiV1Namespace)
-             ->group(base_path('routes/api/v1.php'));
+        $this->initAdminApi();
+
+    }
+
+    private function initAdminApi()
+    {
+        Route::prefix('admin/api/v1')
+            ->middleware('api')
+            ->namespace('App\Http\Controllers\Adminhtml\Api\V1')
+            ->group(base_path('routes/adminhtml/api/v1.php'));
     }
 }
